@@ -18,17 +18,11 @@ if(location.href.indexOf("login.html") === -1 ) {
       }
       if ( info.success ){
         // 当前用户已登录, 不需要拦截, 啥事都不用干, 让用户访问页面
-        console.log( "当前用户已登陆" );
+        //console.log( "当前用户已登陆" );
       }
     }
   })
 }
-
-
-
-
-
-
 
 
 //1,实现进度条功能
@@ -78,7 +72,7 @@ $(function(){
   });
 
   //(4) 点击模态框中的退出按钮, 需要进行退出操作(ajax)
-  $('#logoutModal').click(function(){
+  $('#logoutBtn').click(function(){
     // 发送ajax请求进行退出操作, 让后台销毁当前用户的登陆状态
     $.ajax({
       type:'get',

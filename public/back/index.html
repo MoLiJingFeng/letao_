@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <title>乐淘电商</title>
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <!-- 表单验证插件 -->
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <!-- 进度条插件 -->
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="./css/common.css">
 
@@ -13,12 +15,10 @@
 
 <!-- 左侧侧边栏 -->
 <div class="lt_aside">
-
   <!-- 标题  -->
   <div class="brand">
     <a href="#">黑马21期</a>
   </div>
-
   <!-- 用户头像 -->
   <div class="user">
     <img src="./images/02.jpg" alt="">
@@ -53,11 +53,16 @@
   <!-- 流式布局容器 container-fluid, 有默认的padding值, 左右15px (使用路径导航)-->
   <div class="container-fluid">
     <ol class="breadcrumb">
-      <li><a href="#">管理系统</a></li>
+      <li><a href="index.html">管理系统</a></li>
       <li class="active">首页</li>
     </ol>
-  </div>
 
+    <!-- 两个图表, 需要两个具备宽高的容器 -->
+    <div class="lt_content">
+        <div class="echarts1 pull-left"></div>
+        <div class="echarts2 pull-right"></div>
+    </div>
+  </div>
 </div>
 
 <!-- 退出模态框 (js中的模态框)-->
@@ -71,11 +76,11 @@
         <h4 class="modal-title">温馨提示</h4>
       </div>
       <div class="modal-body">
-        <p><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
+        <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">退出</button>
+        <button type="button" id="logoutBtn" class="btn btn-primary">退出</button>
       </div>
     </div>
   </div>
@@ -87,6 +92,8 @@
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/echarts/echarts.min.js"></script>
   <script src="js/common.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 </html>
