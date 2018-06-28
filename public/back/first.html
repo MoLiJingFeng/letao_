@@ -13,33 +13,26 @@
 
 <!-- 左侧侧边栏 -->
 <div class="lt_aside">
-
-  <!-- 标题  -->
   <div class="brand">
     <a href="#">黑马21期</a>
   </div>
-
-  <!-- 用户头像 -->
   <div class="user">
     <img src="./images/02.jpg" alt="">
     <p>超级管理员</p>
   </div>
-
-  <!-- 导航 -->
   <div class="nav">
     <ul>
       <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
       <li>
         <a class="category" href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-        <div class="child" style="display: none">
-          <a href="first.html">一级分类</a>
+        <div class="child">
+          <a href="first.html" class="current">一级分类</a>
           <a href="second.html">二级分类</a>
         </div>
       </li>
       <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
     </ul>
   </div>
-
 </div>
 
 <!-- 右侧主体部分 -->
@@ -53,16 +46,60 @@
   <!-- 流式布局容器 container-fluid, 有默认的padding值, 左右15px (使用路径导航)-->
   <div class="container-fluid">
     <ol class="breadcrumb">
-      <li><a href="#">管理系统</a></li>
-      <li class="active">首页</li>
+      <li><a href="index.html">管理系统</a></li>
+      <li class="active">分类管理</li>
+      <li class="active">一级分类</li>
     </ol>
-  </div>
 
+    <div class="lt_content">
+      <!-- 按钮 -->
+      <button id="addBtn" class="btn btn-default mb_20">添加分类</button>
+
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th width="20%">序号</th>
+          <th width="80%">分类</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!-- 挖个坑 使用模板动态渲染数据 -->
+
+        </tbody>
+      </table>
+
+      <div class="text-right">
+
+        <!-- 分页 dom 结构 -->
+        <ul id="paginator"></ul>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- 退出模态框 (js中的模态框)-->
-<!-- data-dismiss="modal" 关闭模态框 -->
-<!-- 注意: 外面是蒙层, 需要给里面的模态框设置 modal-lg 大模态框, modal-sm 小模态框 -->
+
+<!-- 添加分类模态框 -->
+<div class="modal fade" tabindex="-1" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类名称">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="add">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 退出模态框 -->
 <div class="modal fade" tabindex="-1" id="logoutModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -82,11 +119,25 @@
 </div>
 
 
+<!-- 数据模板 -->
+<script type="text/html" id="fTmp">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i + 1 + (page-1)*size  }}</td>
+    <td>{{ v.categoryName }}</td>
+  </tr>
+  {{ /each }}
+</script>
+
 
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/first.js"></script>
+
 </body>
 </html>
