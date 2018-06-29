@@ -83,17 +83,22 @@
 <div class="modal fade" tabindex="-1" id="addModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title">添加分类</h4>
-      </div>
-      <div class="modal-body">
-        <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类名称">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="add">添加</button>
-      </div>
+      <form id="form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <!-- 注意: 插件提供的表单验证,input框外父盒子必须有form-group类名-->
+          <div class="form-group">
+            <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类名称">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary" id="add">添加</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -120,7 +125,7 @@
 
 
 <!-- 数据模板 -->
-<script type="text/html" id="fTmp">
+<script type="text/html" id="tpl">
   {{ each rows v i }}
   <tr>
     <td>{{ i + 1 + (page-1)*size  }}</td>
