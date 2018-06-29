@@ -79,7 +79,59 @@
 
 
 <!-- 分类模态框 -->
-<div></div>
+<div class="modal fade" tabindex="-1" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <form id="form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+
+
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >
+                <!-- 要设置文本,所以套个span标签,设置id -->
+                <span id="dropdownTxt">请选择一级分类</span>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <!-- 挖坑 一级分类模板-->
+              </ul>
+            </div>
+            <!-- 使用隐藏域 -->
+            <input type="hidden" name="categoryId">
+            <!-- 接口参数要求,无实际功能 -->
+            <input type="hidden" name="hot" value="1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
+          </div>
+
+          <div class="form-group">
+            <label for="fileupload" class="btn btn-default">上传图片</label>
+            <!-- name: 后台需要通过 name 来获取图片进行转存 -->
+            <!-- data-url: 指定后台上传图片的地址 -->
+            <!-- multiple指定多文件上传 -->
+            <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none">
+          </div>
+          <div class="form-group" id="imgBox">
+            <img src="./images/none.png" width="100" height="100">
+            <input type="hidden" name="brandLogo">
+          </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary" id="add">添加</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!-- 退出模态框 -->
 <div class="modal fade" tabindex="-1" id="logoutModal">
@@ -101,7 +153,30 @@
 </div>
 
 
-<!-- 数据渲染模板 -->
+<!-- 数据渲染模板 tpl-1 -->
+<script type="text/template" id="tpl-1">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i + 1 + (page-1) * size }}</td>
+    <td>{{ v.categoryName }}</td>
+    <td>{{ v.brandName }}</td>
+    <td>
+      <img src="{{ v.brandLogo }}" height="50" alt="">
+    </td>
+  </tr>
+  {{ /each }}
+</script>
+
+<!-- 数据渲染模板 tpl-2 -->
+<script type="text/html" id="tpl-2">
+{{ each rows v i }}
+
+<li><a data-id="{{ v.id }}" href="#">{{ v.categoryName }}</a></li>
+
+{{ /each }}
+</script>
+
+
 
 
 
