@@ -28,7 +28,7 @@
           <a href="second.html">二级分类</a>
         </div>
       </li>
-      <li><a href="product.html" class="current"><i class="glyphicon glyphicon-tags"></i><span>商品管理<</span></a></li>
+      <li><a href="product.html" class="current"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
     </ul>
   </div>
 </div>
@@ -96,6 +96,7 @@
               </button>
               <ul class="dropdown-menu">
                 <!-- 挖坑 二级分类模板-->
+                <!-- 模板id=dropdownTpl-->
               </ul>
             </div>
             <!-- 使用隐藏域 -->
@@ -128,7 +129,9 @@
                 multiple 设置多文件上传-->
             <input type="file" id="fileupload" name="pic1" data-url="/product/addProductPic" multiple style="display: none">
           </div>
+
           <div class="form-group" id="imgBox">
+
             <!-- 设置一个隐藏域, 标记当前用户有没有上传满 3 张图片 -->
             <input type="hidden" name="picStatus">
           </div>
