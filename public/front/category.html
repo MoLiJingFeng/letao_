@@ -2,9 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>乐淘商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 小图标 -->
+    <link rel="icon" href="favicon.ico">
+    <!-- 引入 font-awesome 字体图标 -->
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/category.css">
 </head>
 <body>
+<!-- 全屏容器 -->
+<div class="lt-container">
+
+    <div class="lt-header">
+        <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
+        <h3>乐淘云购</h3>
+        <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
+    </div>
+
+    <div class="lt-main">
+        <div class="lt-category-left">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul>
+                        <!--挖个坑 左侧分类坑 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="lt-category-right">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul class="mui-clearfix">
+                        <!--挖个坑 右侧详情坑-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lt-footer">
+        <ul class="mui-clearfix">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li class="current">
+                <a href="category.html">
+                    <i class="fa fa-bars"></i>
+                    <p>分类页</p>
+                </a>
+            </li>
+            <li>
+                <a href="cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- 分类页数据渲染模板 -->
+<!-- 左侧模板 -->
+<!-- 需求让第一个 a 有 current(i指当前元素,0指在数组中的位置(第一个)) -->
+<script type="text/template" id="left-tpl">
+
+ {{ each rows v i }}
+    <li><a data-id="{{ v.id }}" href="#" class="{{ i === 0 ? 'current':''}}">{{ v.categoryName }}</a></li>
+ {{ /each }}
+
+</script>
+
+<!--右侧模板-->
+<script type="text/html" id="right-tpl">
+
+  {{ if rows.length === 0 }}
+  <p>没有更多分类信息了</p>
+  {{ /if }}
+
+   {{each rows v i }}
+        <li>
+            <a href="#">
+                <img src="{{ v.brandLogo }}" alt="">
+                <p>{{ v.brandName }}</p>
+            </a>
+        </li>
+   {{ /each }}
+</script>
+
+
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/category.js"></script>
 
 </body>
 </html>

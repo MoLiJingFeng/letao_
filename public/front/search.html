@@ -2,9 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>乐淘商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 小图标 -->
+    <link rel="icon" href="favicon.ico">
+    <!-- 引入 font-awesome 字体图标 -->
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/search.css">
 </head>
 <body>
 
+<!-- 全屏容器 -->
+<div class="lt_container">
+    <div class="lt_header">
+        <!-- history.go(-1) 返回上一页 -->
+        <a href="javascript:history.go(-1);" class="icon_left"><i class="mui-icon mui-icon-back"></i></a>
+        <h3>乐淘云购</h3>
+    </div>
+    <div class="lt_main">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+
+                <!-- 搜索框 -->
+                <div class="lt_search">
+                    <input type="text" placeholder="请输入搜索关键字" class="search_input">
+                    <button class="mui-btn mui-btn-primary search_btn">搜索</button>
+                </div>
+
+
+                <!-- 搜索历史 -->
+                <div class="lt_history">
+                    <!-- 挖个大坑 -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="lt_footer">
+        <ul class="mui-clearfix">
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="category.html">
+                    <i class="fa fa-bars"></i>
+                    <p>分类页</p>
+                </a>
+            </li>
+            <li>
+                <a href="cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/search.js"></script>
 </body>
 </html>
